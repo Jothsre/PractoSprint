@@ -1,0 +1,45 @@
+package StepDefinition;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Profile {
+	  WebDriver driver;
+	  driver=new Chromedriver();
+		@Given("I am on Hotel app home page")
+		public void i_am_on_hotel_app_home_page() {
+			driver = new ChromeDriver();
+			driver.get("https://www.practo.com");
+			driver.manage().window().maximize();
+		}
+		
+		@When("I click on Login\\/Signup")
+		public void i_click_on_login_signup() {
+			driver.findElement(By.id("username")).click();
+		}
+			
+			@When("I entered mobilenumber")
+			public void i_entered_mobilenumber() {
+				WebElement number = driver.findElement(By.id("username")); 
+				number.sendKeys("7358396634");
+			}
+
+			@When("I entered password")
+			public void i_entered_password() {
+				WebElement password = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[2]/form/div/div[2]/input"));
+				password.sendKeys("123456nag@");
+			}
+
+			@Then("I click on the login button")
+			public void i_click_on_the_login_button() {
+				driver.findElement(By.id("login")).click();
+			}
+
+
+}

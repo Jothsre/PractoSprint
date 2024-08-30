@@ -1,0 +1,62 @@
+package StepDefinition;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Profile {
+	WebDriver driver;
+	ChromeDriver dri;
+		
+		@Given("I am on Hotel app home page")
+		public void i_am_on_hotel_app_home_page() {
+			driver = new ChromeDriver();
+			driver.manage().window().maximize();
+			driver.get("https://www.practo.com");
+		    
+		}
+
+		@When("I entered valid username")
+		public void i_entered_valid_username() {
+		    // Write code here that turns the phrase above into concrete actions
+			WebElement phNo = driver.findElement(By.id("username")); //actual process
+			phNo.sendKeys("7358396634");
+		}
+
+		@When("I entered valid password")
+		public void i_entered_valid_password() {
+			WebElement Password = driver.findElement(By.id("password")); 
+			Password.sendKeys("123456nag@");
+		}
+
+		@Then("I click on the login button")
+		public void i_click_on_the_login_button() {
+			driver.findElement(By.id("login")).click();
+		}
+
+//		@Then("I am successfully logged in")
+//		public void i_am_successfully_logged_in() {
+//		    // Write code here that turns the phrase above into concrete actions
+//		}
+		
+		@When("I entered username as <{string}>")
+		public void i_entered_username_as(String string) {
+		    // Write code here that turns the phrase above into concrete actions
+//		    throw new io.cucumber.java.PendingException();
+		}
+
+		@When("I entered password as <{string}>")
+		public void i_entered_password_as(String string) {
+		    // Write code here that turns the phrase above into concrete actions
+//		    throw new io.cucumber.java.PendingException();
+		}
+
+
+
+
+}
